@@ -1,19 +1,6 @@
-import CurrentTime from "./CurrentTime";
 
-const getTimeData = async (): Promise<{ datetime: string }> => {
-  const res = await fetch("https://worldtimeapi.org/api/timezone/Asia/Seoul", {
-    cache : "force-cache" // SSG 처럼 동작
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-};
 
 const AboutPage = async () => {
-  const { datetime } = await getTimeData();
 
   return (
     <div style={{ padding: "2rem" }}>
