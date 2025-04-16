@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import styles from "./layout.module.css";
+import { SessionProvider } from "next-auth/react"; 
 
 export const metadata = {
   title: "영화보자",
@@ -19,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       {/* body에는 기본 배경 판으로 background-color: 검정색이 설정되어 있다.*/}
       <body>
-
+        <SessionProvider>
         {/* 상단 네비게이션 바  */}
         <nav className={styles["layout__nav"]}>
           <Link className={styles["layout__logo"]} href="/">
@@ -39,6 +40,7 @@ export default function RootLayout({
         </nav>
         {/* 콘텐츠 내용 max-width : 1000px 과 동시에 가운데정렬이 되어있다. (하얀색배경) */}
         <div className={styles["layout__content"]}>{children}</div>
+        </SessionProvider>
       </body>
     </html>
   );
