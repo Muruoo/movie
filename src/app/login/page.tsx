@@ -2,6 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import GoogleLoginButton from "@/components/auth/GoogleLoginButton";
+import LogOutButton from "@/components/auth/LogOutButton";
 import styles from "./page.module.css";
 
 const LoginPage = () => {
@@ -16,8 +17,8 @@ const LoginPage = () => {
       {/* 로그인 된 상태 */}
       {session && (
         <div>
-          <p>환영합니다, {session.user?.name} 님!</p>
-          <p>이메일: {session.user?.email}</p>
+          <p>환영합니다 영화보자 회원님!</p>
+          <LogOutButton onClick={() => signOut()}/>
         </div>
       )}
 
